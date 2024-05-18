@@ -46,4 +46,8 @@ public class ProductService {
     public Product findById(Long id) {
         return productRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "entity not found"));
     }
+
+    public void deleteById(Long id) {
+        productRepository.deleteById(id);
+    }
 }
