@@ -1,5 +1,6 @@
 package id.my.hendisantika.backend.service;
 
+import id.my.hendisantika.backend.model.Product;
 import id.my.hendisantika.backend.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,4 +21,8 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class ProductService {
     private final ProductRepository productRepository;
+
+    public Product save(Product product) {
+        return productRepository.save(product);
+    }
 }
