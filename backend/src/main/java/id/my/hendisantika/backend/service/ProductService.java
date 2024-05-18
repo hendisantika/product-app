@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 /**
  * Created by IntelliJ IDEA.
  * Project : product-app
@@ -36,5 +38,9 @@ public class ProductService {
         managedProduct.setPrice(product.getPrice());
 
         return this.save(managedProduct);
+    }
+
+    public List<Product> findAll() {
+        return productRepository.findAll();
     }
 }
