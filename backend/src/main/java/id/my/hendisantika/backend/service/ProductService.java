@@ -31,8 +31,7 @@ public class ProductService {
     }
 
     public Product updateById(Long id, Product product) {
-        Product managedProduct = productRepository.findById(id).orElseThrow(() -> new ResponseStatusException(
-                HttpStatus.NOT_FOUND, "entity not found"));
+        Product managedProduct = this.findById(id);
         managedProduct.setTitle(product.getTitle());
         managedProduct.setQuantity(product.getQuantity());
         managedProduct.setPrice(product.getPrice());
@@ -42,5 +41,9 @@ public class ProductService {
 
     public List<Product> findAll() {
         return productRepository.findAll();
+    }
+
+    public Product findById(Long id) {
+        return productRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "entity not found"));
     }
 }
